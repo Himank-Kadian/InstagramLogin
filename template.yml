@@ -1,2 +1,13 @@
 parameters:
   test : 'defaultKey'
+
+steps:
+-script: echo here we go
+-script: echo ${{ parameters.test }}
+-script: echo $( parameters.test )
+-script: echo $(keyRef)
+-script: echo $( keyRef )
+-script: echo $( KeyRef )
+-script: echo $( ${{ parameters.test }} )
+-script: echo $(${{ parameters.test }})
+-script: echo $(${{parameters.test}})
