@@ -9,12 +9,16 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  keyFinal: 'Bingo!'
+  keyRef: 'keyFinal'
+  
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - script: echo $(keyFinal)
 - script: echo $(keyFinal)
 - script: echo $( keyFinal )
+- template: template.yml
+  parameters: keyFinal
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
